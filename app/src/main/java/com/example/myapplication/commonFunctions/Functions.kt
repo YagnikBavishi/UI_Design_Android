@@ -32,6 +32,7 @@ fun spannableText(
             super.updateDrawState(ds)
             ds.color = ContextCompat.getColor(context, color)
             ds.isUnderlineText = false
+            ds.isFakeBoldText = true
         }
     }
 

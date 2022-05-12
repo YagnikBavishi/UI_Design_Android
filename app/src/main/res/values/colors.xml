@@ -15,4 +15,5 @@
     <color name="edit_text_background">#F9F9FF</color>
     <color name="background_color">#F6F8FB</color>
     <color name="background_blur_color">#F9F9FF</color>
+    <color name="time_text">#6C4DDA</color>
 </resources>
