@@ -19,6 +19,10 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(Intent(this, SignInActivity::class.java))
         }
 
+        binding.btnRegisterByNo.setOnClickListener {
+            startActivity(Intent(this, PhoneNumberActivity::class.java))
+        }
+
         binding.cardView.setBackgroundResource(R.drawable.card_view_design)
     }
 }

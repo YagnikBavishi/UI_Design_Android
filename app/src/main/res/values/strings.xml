@@ -37,4 +37,24 @@
     <string name="full_name_short">full name is short</string>
     <string name="enter_vaild_number">Enter valid number</string>
     <string name="password_and_conform_password_not_match">Password and conform password is not match</string>
+    <string name="tv_enter_number">Simply enter your phone number to login or create an account.</string>
+    <string name="tv_enter_number_privacy_policy"><b>By using our mobile app, you agree to our and </b>Privacy Policy Terms of Use</string>
+    <string name="btn_continue">Continue</string>
+    <string name="tv_authentication_code">An authentication code has been sent to</string>
+    <string name="tv_phone_number">(+880) 111 222 333</string>
+    <string name="otp_title">OTP Verification</string>
+    <string name="tv_resend_code">I didn\'t receive code. Resend Code</string>
+    <string name="btn_verify_now">Verify Now</string>
+    <string name="tv_time">1:20 Sec left</string>
+    <string name="number_empty">Number is empty</string>
+    <string name="number_1">+81</string>
+    <string name="number_2">+88</string>
+    <string name="number_3">+84</string>
+    <string name="number_4">+85</string>
+    <string name="number_5">+91</string>
+    <string name="et_mobile_number_empty">Mobile Number is Empty!!</string>
+    <string name="et_empty_first">Enter Number in First edit text</string>
+    <string name="et_empty_second">Enter Number in Second edit text</string>
+    <string name="et_empty_third">Enter Number in Third edit text</string>
+    <string name="et_empty_forth">Enter Number in Forth edit text</string>
 </resources>
