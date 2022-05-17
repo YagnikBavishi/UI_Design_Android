@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blur_color"
+    tools:context=".activity.HomeScreenActivity">
+
+    <include
+        android:id="@+id/customToolbar"
+        layout="@layout/custom_home_screen_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customToolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/eventRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCategoryEvent"
+                style="@style/textViewBoldLargeStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/tv_category_events"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/textViewBoldSmallStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/tv_view_all"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvCategoryEvent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvCategoryEvent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCategoryEvent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPopularOrganizer"
+                style="@style/textViewBoldLargeStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/tv_popular_organizer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/textViewBoldSmallStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/tv_view_all"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvPopularOrganizer"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularOrganizerRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvPopularOrganizer"
+                app:layout_constraintTop_toBottomOf="@+id/tvPopularOrganizer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUpcomingEvent"
+                style="@style/textViewBoldLargeStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/tv_upcoming_events"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/popularOrganizerRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/textViewBoldSmallStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:text="@string/tv_view_all"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvUpcomingEvent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_3sdp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUpcomingEvent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgUpcomingEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:src="@drawable/upcoming_event_image"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvUpcomingEventName"
+                        style="@style/textViewBoldStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="@string/tv_upcoming_event_name"
+                        app:layout_constraintStart_toEndOf="@+id/imgUpcomingEvent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvUpcomingEventLocation"
+                        style="@style/smallTextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:text="@string/tv_upcoming_event_location"
+                        app:layout_constraintStart_toStartOf="@+id/tvUpcomingEventName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUpcomingEventName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvUpcomingEventTime"
+                        style="@style/smallTextViewStyle"
+                        android:textColor="@color/time_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:text="@string/tv_upcoming_event_time"
+                        app:layout_constraintStart_toStartOf="@+id/tvUpcomingEventName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUpcomingEventLocation" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgUpcomingEventPhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:src="@drawable/public_image_upcoming_event"
+                        app:layout_constraintStart_toEndOf="@+id/imgUpcomingEvent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUpcomingEventTime" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvInterested"
+                        style="@style/smallTextViewStyle"
+                        android:textColor="@color/splash_screen_background_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:src="@drawable/public_image_upcoming_event"
+                        android:text="@string/tv_interested"
+                        app:layout_constraintBottom_toBottomOf="@+id/imgUpcomingEventPhoto"
+                        app:layout_constraintStart_toEndOf="@+id/imgUpcomingEventPhoto"
+                        app:layout_constraintTop_toTopOf="@+id/imgUpcomingEventPhoto" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/startRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_9sdp"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:src="@drawable/ic_start_rating"
+                        app:layout_constraintBottom_toBottomOf="@+id/imgUpcomingEventPhoto"
+                        app:layout_constraintStart_toEndOf="@+id/tvInterested"
+                        app:layout_constraintTop_toTopOf="@+id/imgUpcomingEventPhoto" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

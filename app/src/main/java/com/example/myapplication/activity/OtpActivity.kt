@@ -1,5 +1,6 @@
 package com.example.myapplication.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.*
 import android.text.method.LinkMovementMethod
@@ -46,7 +47,8 @@ class OtpActivity : AppCompatActivity() {
             val etOtpThree = binding.etThirdNumber.text.toString().trim()
             val etOtpFour = binding.etForthNumber.text.toString().trim()
             if (validation(etOtpOne, etOtpTwo, etOtpThree, etOtpFour)) {
-                showToast(getString(R.string.successful_message))
+                startActivity(Intent(this, HomeScreenActivity::class.java))
+                finish()
             }
         }
 

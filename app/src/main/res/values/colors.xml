@@ -16,4 +16,7 @@
     <color name="background_color">#F6F8FB</color>
     <color name="background_blur_color">#F9F9FF</color>
     <color name="time_text">#6C4DDA</color>
+    <color name="blur_color">#1A11C9BD</color>
+    <color name="time_color">#FA4048</color>
+    <color name="text_view_color">#4E4B66</color>
 </resources>

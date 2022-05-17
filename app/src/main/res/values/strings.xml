@@ -57,4 +57,27 @@
     <string name="et_empty_second">Enter Number in Second edit text</string>
     <string name="et_empty_third">Enter Number in Third edit text</string>
     <string name="et_empty_forth">Enter Number in Forth edit text</string>
+    <string name="tv_food_event">Food Event</string>
+    <string name="tv_category_events">Category Events</string>
+    <string name="tv_view_all">View All +</string>
+    <string name="tv_100_event">100+ Event</string>
+    <string name="tv_organizerName">Space-X Tech</string>
+    <string name="btn_follow">Follow</string>
+    <string name="tv_popular_organizer">Popular Organizer</string>
+    <string name="tv_upcoming_events">Upcoming Events</string>
+    <string name="tv_upcoming_event_name">Asia Dance Competition</string>
+    <string name="tv_upcoming_event_location">Town Hall Islington London</string>
+    <string name="tv_upcoming_event_time">Sat, Dec 2022, at 12.00 PM</string>
+    <string name="title_home">Home</string>
+    <string name="tv_event_name">KPOP Award Indonesia</string>
+    <string name="tv_event_address">Town Hall Islington London</string>
+    <string name="tv_interested">Interested</string>
+    <string name="tv_date">25</string>
+    <string name="tv_month">Dec</string>
+    <string name="spinner_item_going">Going</string>
+    <string name="tv_popular_organizer_name_1">Space-X Tech</string>
+    <string name="tv_popular_organizer_name_2">Skateboard Fest</string>
+    <string name="tv_popular_organizer_name_3">Visual Projection</string>
+    <string name="tv_music_event">Music Event</string>
+    <string name="tv_movie_image">Movie Event</string>
 </resources>
