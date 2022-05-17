@@ -3,7 +3,6 @@ package com.example.myapplication.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.commonFunctions.showToast
@@ -25,7 +24,8 @@ class SignInActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             if (validation(email, password)) {
-                Toast.makeText(this, getString(R.string.successful_message), Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, HomeScreenActivity::class.java))
+                finish()
             }
         }
 
