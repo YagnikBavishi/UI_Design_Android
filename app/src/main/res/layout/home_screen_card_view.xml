@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/_7sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/event_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/eventName"
+            style="@style/rememberMeTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/tv_event_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgEvent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/eventAddress"
+            style="@style/smallTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_event_address"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/eventName"
+            app:layout_constraintStart_toStartOf="@+id/eventName"
+            app:layout_constraintTop_toBottomOf="@+id/eventName" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagePublicPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/image_public_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/eventAddress"
+            app:layout_constraintTop_toBottomOf="@+id/eventAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/textViewBoldSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/tv_interested"
+            app:layout_constraintStart_toEndOf="@id/imagePublicPhoto"
+            app:layout_constraintTop_toBottomOf="@id/eventAddress"
+            app:layout_constraintTop_toTopOf="@+id/imagePublicPhoto" />
+
+        <View
+            android:id="@+id/DateView"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/ic_view_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgEvent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date"
+            style="@style/textViewSecondLargeStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="@string/tv_date"
+            app:layout_constraintEnd_toEndOf="@+id/DateView"
+            app:layout_constraintStart_toStartOf="@+id/DateView"
+            app:layout_constraintTop_toBottomOf="@+id/imgEvent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/textViewSecondLargeStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_month"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/date"
+            app:layout_constraintStart_toStartOf="@+id/date"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <View
+            android:id="@+id/spinnerView"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_9sdp"
+            android:background="@drawable/blur_color_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/DateView"
+            app:layout_constraintTop_toBottomOf="@+id/DateView"
+            app:layout_constraintTop_toTopOf="@+id/imagePublicPhoto" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/home_screen_drop_down_icon_background"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/spinnerView"
+            app:layout_constraintEnd_toEndOf="@id/spinnerView"
+            app:layout_constraintStart_toStartOf="@+id/spinnerView"
+            app:layout_constraintTop_toTopOf="@+id/spinnerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+

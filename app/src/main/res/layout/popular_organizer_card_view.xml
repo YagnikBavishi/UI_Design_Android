@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/homeScreenCardView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/_7sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgOrganizer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/organizer_image_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTotalEvents"
+            style="@style/textViewBoldLargeStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/tv_100_event"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgOrganizer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOrganizerName"
+            style="@style/textViewBoldSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@string/tv_organizerName"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotalEvents"
+            app:layout_constraintStart_toStartOf="@+id/tvTotalEvents"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalEvents" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/buttonWithBlurBackgroundStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:text="@string/btn_follow"
+            android:textColor="@color/splash_screen_background_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvOrganizerName"
+            app:layout_constraintStart_toStartOf="@+id/tvOrganizerName"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrganizerName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
