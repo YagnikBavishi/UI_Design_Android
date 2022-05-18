@@ -99,4 +99,5 @@
     <string name="tv_english">English</string>
     <string name="tv_link_accounts">Linked Accounts</string>
     <string name="tv_facebook_google">Facebook, go…</string>
+    <string name="unsuccessfull_message">Unsuccessful</string>
 </resources>

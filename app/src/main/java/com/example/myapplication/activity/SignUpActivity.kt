@@ -2,36 +2,50 @@ package com.example.myapplication.activity
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.commonFunctions.showToast
 import com.example.myapplication.commonFunctions.spannableText
 import com.example.myapplication.constants.Constants
+import com.example.myapplication.constants.Constants
+import com.example.myapplication.viewModels.ManualApiCallViewModel
+import com.example.myapplication.dataClass.SignUpModelClass
 import com.example.myapplication.databinding.ActivitySignUpBinding
+import org.json.JSONObject
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
+    private val viewModel: ManualApiCallViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.customToolbar.tvTitleScreen.text = getString(R.string.title_sign_up)
 
-        binding.customToolbar.btnBack.setOnClickListener {
-            finish()
+        with(binding) {
+            customToolbar.tvTitleScreen.text = getString(R.string.title_sign_up)
+            customToolbar.btnBack.setOnClickListener {
+                finish()
+            }
+            progressBar.visibility = View.INVISIBLE
         }
+
+        setViewModelMessage()
 
         binding.btnSignUp.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             val fullName = binding.etFullName.text.toString().trim()
             val phoneNumber = binding.etPhoneNumber.text.toString().trim()
-            val conformPassword  = binding.etConformPassword.text.toString().trim()
+            val conformPassword = binding.etConformPassword.text.toString().trim()
             if (validation(email, password, fullName, phoneNumber, conformPassword)) {
-                Toast.makeText(this, getString(R.string.successful_message), Toast.LENGTH_SHORT).show()
+                val credentials = JSONObject()
+                credentials.put("name", fullName)
+                credentials.put("email", email)
+                credentials.put("password", password)
+                binding.progressBar.visibility = View.VISIBLE
+                viewModel.loginApiCall(Constants.SIGN_UP_URL, Constants.POST, credentials, SignUpModelClass::class.java, 200)
             }
         }
         val spannableString = spannableText(Constants.TWENTY_FIVE, Constants.THIRTY_FOUR, R.color.splash_screen_background_color, binding.tvDoNotHaveAccount.text.toString(), this) {
@@ -40,6 +54,22 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.tvDoNotHaveAccount.text = spannableString
         binding.tvDoNotHaveAccount.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    private fun setViewModelMessage() {
+        with(viewModel) {
+            validate.observe(this@SignUpActivity) {
+                if (it) {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    startActivity(Intent(this@SignUpActivity, HomeScreenActivity::class.java))
+                    finish()
+                }
+            }
+            message.observe(this@SignUpActivity) {
+                binding.progressBar.visibility = View.INVISIBLE
+                Toast.makeText(this@SignUpActivity, it, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun validation(
