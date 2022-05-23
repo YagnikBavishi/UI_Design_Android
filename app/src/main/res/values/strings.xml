@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="welcome_to_online_event_app">Welcome to Online Event App</string>
+    <string name="find_the_best_event_near_you_with_just_one_of_best_app">Find the Best event near you with just one of best app</string>
+    <string name="btn_get_started">Get Started</string>
+    <string name="tv_header_first_page">Welcome to Online Event App</string>
+    <string name="tv_sub_header_first_page">Find the Best event near you with just one of best app</string>
+    <string name="tv_header_second_page">Find And Book A Event</string>
+    <string name="tv_sub_header_second_page">Find the Best event near you with just one of best app</string>
+    <string name="tv_header_third_page">Organized A Premium Event</string>
+    <string name="tv_sub_header_third_page">Find the Best event near you with just one of best app</string>
 </resources>
