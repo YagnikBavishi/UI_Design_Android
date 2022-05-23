@@ -19,4 +19,6 @@
     <color name="blur_color">#1A11C9BD</color>
     <color name="time_color">#FA4048</color>
     <color name="text_view_color">#4E4B66</color>
+    <color name="text_view_light_color">#0F11C9BD</color>
+    <color name="thumb_color">#B4C2CD</color>
 </resources>
