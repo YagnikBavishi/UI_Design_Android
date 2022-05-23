@@ -3,44 +3,41 @@ package com.example.myapplication.activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.commonFunctions.showToast
 import com.example.myapplication.constants.Constants
-import com.example.myapplication.viewModels.ManualApiCallViewModel
-import com.example.myapplication.dataClass.SignInModelClass
 import com.example.myapplication.commonFunctions.spannableText
-import com.example.myapplication.constants.Constants
 import com.example.myapplication.databinding.ActivitySignInBinding
-import org.json.JSONObject
+import com.example.myapplication.viewModels.SignInViewModel
 
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
-    private val viewModel: ManualApiCallViewModel by viewModels()
+    private val viewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.customToolbar.tvTitleScreen.text = getString(R.string.title_sign_in)
 
-        binding.progressBar.visibility = View.INVISIBLE
+        with(binding) {
+            customToolbar.tvTitleScreen.text = getString(R.string.title_sign_in)
+            progressBar.visibility = View.INVISIBLE
+        }
 
         binding.btnSignIn.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
-            val credentials = JSONObject()
-            credentials.put("email", email)
-            credentials.put("password", password)
-
-            if (validation(email, password)) {
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+            if (validationOfData(email, password)) {
                 binding.progressBar.visibility = View.VISIBLE
-                viewModel.loginApiCall(Constants.SIGN_IN_URL, Constants.POST, credentials, SignInModelClass::class.java, 200)
+                viewModel.signInWithRetrofit(email, password, Constants.SUCCESS_CODE)
             }
         }
 
-        setViewModelMessage()
+        bindViewModelData()
 
         binding.customToolbar.btnBack.setOnClickListener {
             finish()
@@ -55,23 +52,36 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
-    private fun setViewModelMessage() {
+    private fun bindViewModelData() {
         with(viewModel) {
-            validate.observe(this@SignInActivity) {
-                if (it) {
-                    binding.progressBar.visibility = View.INVISIBLE
-                    startActivity(Intent(this@SignInActivity, HomeScreenActivity::class.java))
-                    finish()
+            validateResponse.observe(this@SignInActivity) {
+                when {
+                    it -> {
+                        binding.progressBar.visibility = View.INVISIBLE
+                        startActivity(
+                            Intent(
+                                this@SignInActivity,
+                                HomeScreenActivity::class.java
+                            )
+                        )
+                        finish()
+                    }
+                    else -> {
+                        errorMessage.observe(this@SignInActivity) { error ->
+                            binding.progressBar.visibility = View.INVISIBLE
+                            showToast(error)
+
+                        }
+                    }
                 }
             }
             message.observe(this@SignInActivity) {
                 binding.progressBar.visibility = View.INVISIBLE
-                Toast.makeText(this@SignInActivity, it, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun validation(email: String, password: String): Boolean {
+    private fun validationOfData(email: String, password: String): Boolean {
         return when {
             email.isEmpty() -> {
                 showToast(getString(R.string.empty_email))

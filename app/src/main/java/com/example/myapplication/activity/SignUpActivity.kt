@@ -1,22 +1,22 @@
 package com.example.myapplication.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.activity.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.commonFunctions.showToast
 import com.example.myapplication.commonFunctions.spannableText
 import com.example.myapplication.constants.Constants
-import com.example.myapplication.constants.Constants
-import com.example.myapplication.viewModels.ManualApiCallViewModel
-import com.example.myapplication.dataClass.SignUpModelClass
 import com.example.myapplication.databinding.ActivitySignUpBinding
-import org.json.JSONObject
+import com.example.myapplication.viewModels.SignInViewModel
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
-    private val viewModel: ManualApiCallViewModel by viewModels()
+    private val viewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,22 +31,10 @@ class SignUpActivity : AppCompatActivity() {
             progressBar.visibility = View.INVISIBLE
         }
 
-        setViewModelMessage()
+        bindViewModelData()
 
         binding.btnSignUp.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            val fullName = binding.etFullName.text.toString().trim()
-            val phoneNumber = binding.etPhoneNumber.text.toString().trim()
-            val conformPassword = binding.etConformPassword.text.toString().trim()
-            if (validation(email, password, fullName, phoneNumber, conformPassword)) {
-                val credentials = JSONObject()
-                credentials.put("name", fullName)
-                credentials.put("email", email)
-                credentials.put("password", password)
-                binding.progressBar.visibility = View.VISIBLE
-                viewModel.loginApiCall(Constants.SIGN_UP_URL, Constants.POST, credentials, SignUpModelClass::class.java, 200)
-            }
+            getData()
         }
         val spannableString = spannableText(Constants.TWENTY_FIVE, Constants.THIRTY_FOUR, R.color.splash_screen_background_color, binding.tvDoNotHaveAccount.text.toString(), this) {
             finish()
@@ -56,23 +44,48 @@ class SignUpActivity : AppCompatActivity() {
         binding.tvDoNotHaveAccount.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    private fun setViewModelMessage() {
+    private fun getData() {
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        val fullName = binding.etFullName.text.toString().trim()
+        val phoneNumber = binding.etPhoneNumber.text.toString().trim()
+        val conformPassword = binding.etConformPassword.text.toString().trim()
+        if (validationOfData(email, password, fullName, phoneNumber, conformPassword)) {
+            binding.progressBar.visibility = View.VISIBLE
+            viewModel.signUpWithRetrofit(email, password, Constants.SUCCESS_CODE)
+        }
+    }
+
+    private fun bindViewModelData() {
         with(viewModel) {
-            validate.observe(this@SignUpActivity) {
-                if (it) {
-                    binding.progressBar.visibility = View.INVISIBLE
-                    startActivity(Intent(this@SignUpActivity, HomeScreenActivity::class.java))
-                    finish()
+            validateResponse.observe(this@SignUpActivity) {
+                when {
+                    it -> {
+                        binding.progressBar.visibility = View.INVISIBLE
+                        startActivity(
+                            Intent(
+                                this@SignUpActivity,
+                                HomeScreenActivity::class.java
+                            )
+                        )
+                        finish()
+                    }
+                    else -> {
+                        errorMessage.observe(this@SignUpActivity) { error ->
+                            binding.progressBar.visibility = View.INVISIBLE
+                            showToast(error)
+
+                        }
+                    }
                 }
             }
             message.observe(this@SignUpActivity) {
                 binding.progressBar.visibility = View.INVISIBLE
-                Toast.makeText(this@SignUpActivity, it, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun validation(
+    private fun validationOfData(
         email: String,
         password: String,
         fullName: String,
