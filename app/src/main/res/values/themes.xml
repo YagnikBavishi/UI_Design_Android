@@ -156,6 +156,20 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="textViewWithBackgroundColorStyle" parent="Widget.AppCompat.TextView" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:background">@color/splash_screen_background_color</item>
+    </style>
+
+    <style name="textViewWithBlurBackgroundColorStyle" parent="Widget.AppCompat.TextView" >
+        <item name="android:textColor">@color/splash_screen_background_color</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:background">@color/text_view_light_color</item>
+    </style>
+
     <!-- Card View Style -->
 
     <style name="cardViewStyle" parent="CardView">
@@ -221,6 +235,13 @@
         <item name="android:textColor">@color/edit_text_color</item>
         <item name="android:textSize">@dimen/_13ssp</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <!-- Switch Button Style -->
+
+    <style name="switchButtonStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/switch_thumb_background</item>
+        <item name="track">@drawable/switch_button_background_design</item>
     </style>
 
 </resources>

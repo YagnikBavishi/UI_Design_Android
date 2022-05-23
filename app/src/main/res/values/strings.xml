@@ -80,4 +80,23 @@
     <string name="tv_popular_organizer_name_3">Visual Projection</string>
     <string name="tv_music_event">Music Event</string>
     <string name="tv_movie_image">Movie Event</string>
+    <string name="tv_person_name">Jhon Smith</string>
+    <string name="tv_basic_member">Basic Member</string>
+    <string name="title_setting">Settings</string>
+    <string name="tv_sign_out">Sign Out</string>
+    <string name="tv_news_letter">Newsletter</string>
+    <string name="tv_text_message">Text Message</string>
+    <string name="tv_phone_call">Phone Call</string>
+    <string name="tv_change_password">Change Password</string>
+    <string name="tv_order_management">Order Management</string>
+    <string name="tv_document_management">Document Management</string>
+    <string name="tv_payment">Payment</string>
+    <string name="tv_account">Accounts</string>
+    <string name="tv_more_options">More Options</string>
+    <string name="tv_usd">$USD</string>
+    <string name="tv_currency">Currency</string>
+    <string name="tv_language">Language</string>
+    <string name="tv_english">English</string>
+    <string name="tv_link_accounts">Linked Accounts</string>
+    <string name="tv_facebook_google">Facebook, go…</string>
 </resources>

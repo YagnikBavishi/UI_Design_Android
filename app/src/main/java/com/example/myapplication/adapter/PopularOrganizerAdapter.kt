@@ -17,7 +17,7 @@ class PopularOrganizerAdapter(
         return ViewHolder(binding)
     }
 
-    class ViewHolder(binding: PopularOrganizerCardViewBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(binding: PopularOrganizerCardViewBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.apply {
