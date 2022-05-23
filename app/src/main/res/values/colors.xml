@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_screen_background_color">#11C9BD</color>
+    <color name="header_color">#273147</color>
+    <color name="sub_header_color">#A6A3B8</color>
+    <color name="background_blur_color">#F9F9FF</color>
 </resources>
