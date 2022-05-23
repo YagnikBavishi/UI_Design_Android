@@ -10,11 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".OnBoardingScreenActivity"
+            android:name=".activity.SettingScreenActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.HomeScreenActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.OtpActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PhoneNumberActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.OnBoardingScreenActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SignInActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
