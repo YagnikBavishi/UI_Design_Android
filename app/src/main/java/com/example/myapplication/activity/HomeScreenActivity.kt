@@ -1,5 +1,6 @@
 package com.example.myapplication.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,10 @@ class HomeScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.customToolbar.btnMenu.setOnClickListener {
+           startActivity(Intent(this, SettingScreenActivity::class.java))
+        }
 
         val contextThis = this
 
