@@ -10,5 +10,9 @@
     <color name="splash_screen_background_color">#11C9BD</color>
     <color name="header_color">#273147</color>
     <color name="sub_header_color">#A6A3B8</color>
+    <color name="edit_text_color">#363D4E</color>
+    <color name="hint_color">#8A8D9F</color>
+    <color name="edit_text_background">#F9F9FF</color>
+    <color name="background_color">#F6F8FB</color>
     <color name="background_blur_color">#F9F9FF</color>
 </resources>

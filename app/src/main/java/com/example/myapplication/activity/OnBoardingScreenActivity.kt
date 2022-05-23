@@ -1,8 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import com.example.myapplication.adapter.OnBoardingScreenAdapter
 import com.example.myapplication.dataClass.OnBoardingModelClass
 import com.example.myapplication.databinding.ActivityOnBoardingScreenBinding
@@ -21,12 +23,17 @@ class OnBoardingScreenActivity : AppCompatActivity() {
         binding = ActivityOnBoardingScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.cardView.setBackgroundResource(R.drawable.card_view_design)
-
         addData()
         binding.apply {
             viewPager.adapter = OnBoardingScreenAdapter(imageData)
         }
+
+        binding.btnGetStarted.setOnClickListener {
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        }
+
+        binding.cardView.setBackgroundResource(R.drawable.card_view_design)
 
         binding.viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback ()  {
             override fun onPageSelected(position: Int) {
@@ -35,6 +42,11 @@ class OnBoardingScreenActivity : AppCompatActivity() {
                 binding.tvSubHeader.text = imageData[position].subHeader
             }
         })
+
+        binding.btnGetStarted.setOnClickListener {
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        }
     }
 
     private fun addData() {
